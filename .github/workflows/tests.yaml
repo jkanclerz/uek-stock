@@ -7,7 +7,7 @@ on:
 
 jobs:
   linter:
-    runs-on: ubuntu-lates
+    runs-on: ubuntu-latest
     steps:
       - name: "lets perfom some actions"
         run: "echo 'hello world from GA'"
