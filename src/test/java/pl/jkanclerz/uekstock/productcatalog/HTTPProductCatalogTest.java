@@ -41,7 +41,7 @@ public class HTTPProductCatalogTest {
         Product[] products = response.getBody();
         //Assert
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(8, products.length);
+        assertEquals(2, products.length);
     }
 
     private void thereIsProduct(String productName) {
