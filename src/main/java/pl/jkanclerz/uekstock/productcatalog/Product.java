@@ -1,5 +1,9 @@
 package pl.jkanclerz.uekstock.productcatalog;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
@@ -8,6 +12,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     @Id
     private String id;
@@ -16,8 +23,7 @@ public class Product {
     @Transient
     private List<String> keywords;
     private String mediaPath;
-
-    private Product() {}
+    private boolean published;
 
     public Product(UUID id, String title, BigDecimal price, List<String> keywords, String mediaPath) {
         this.id = id.toString();
@@ -25,25 +31,11 @@ public class Product {
         this.price = price;
         this.keywords = keywords;
         this.mediaPath = mediaPath;
+        this.published = false;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public List<String> getKeywords() {
-        return keywords;
-    }
-
-    public String getMediaPath() {
-        return mediaPath;
+    public void publish() {
+        this.published = true;
     }
 }
+
