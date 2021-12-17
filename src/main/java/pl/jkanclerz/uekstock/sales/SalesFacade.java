@@ -1,7 +1,5 @@
 package pl.jkanclerz.uekstock.sales;
 
-import pl.jkanclerz.uekstock.productcatalog.Product;
-import pl.jkanclerz.uekstock.productcatalog.ProductCatalog;
 
 public class SalesFacade {
     private BasketStorage basketStorage;

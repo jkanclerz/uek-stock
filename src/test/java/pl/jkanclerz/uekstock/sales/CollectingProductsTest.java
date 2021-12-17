@@ -68,6 +68,28 @@ public class CollectingProductsTest {
         thereIsXProductsInCustomersBasket(1, customerId2);
     }
 
+    @Test
+    void itAllowToAddSameProductMultpipleTime() {
+        //arrange
+        String productId = thereIsProduct("product-1");
+        String customerId = thereIsCustomer("Kuba");
+        SalesFacade sales = thereIsSalesModule();
+
+        //Act
+        sales.addToBasket(customerId, productId);
+        sales.addToBasket(customerId, productId);
+        sales.addToBasket(customerId, productId);
+
+        //Assert
+        thereIsXProductsInCustomersBasket(1, customerId);
+        thereIsXQuantityOfProductXInCustomerBasket(3, productId, customerId);
+    }
+
+    private void thereIsXQuantityOfProductXInCustomerBasket(int i, String productId, String customerId) {
+
+    }
+
+
     private SalesFacade thereIsSalesModule() {
         return new SalesFacade(
                 basketStorage,
