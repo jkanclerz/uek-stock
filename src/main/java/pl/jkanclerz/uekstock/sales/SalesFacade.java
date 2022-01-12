@@ -43,7 +43,6 @@ public class SalesFacade {
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
 
-
         return Offer.of(offerTotal, lines);
     }
 

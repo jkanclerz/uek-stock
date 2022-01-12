@@ -3,9 +3,14 @@ package pl.jkanclerz.uekstock;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import pl.jkanclerz.uekstock.productcatalog.Product;
 import pl.jkanclerz.uekstock.productcatalog.ProductCatalog;
 import pl.jkanclerz.uekstock.productcatalog.ProductRepository;
 import pl.jkanclerz.uekstock.productcatalog.ProductStorage;
+import pl.jkanclerz.uekstock.sales.BasketStorage;
+import pl.jkanclerz.uekstock.sales.ProductDetails;
+import pl.jkanclerz.uekstock.sales.ProductDetailsProvider;
+import pl.jkanclerz.uekstock.sales.SalesFacade;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -37,5 +42,24 @@ public class App {
         productCatalog.publish(productId2);
 
         return productCatalog;
+    }
+
+    @Bean
+    public SalesFacade createSalesFacade(ProductDetailsProvider productDetailsProvider) {
+        return new SalesFacade(
+                new BasketStorage(),
+                productDetailsProvider
+        );
+    }
+
+    @Bean
+    public ProductDetailsProvider productDetailsProvider(ProductCatalog productCatalog ) {
+        return (id) -> {
+            Product product = productCatalog.getById(id);
+            return new ProductDetails(
+                    product.getId(),
+                    product.getPrice()
+            );
+        };
     }
 }
