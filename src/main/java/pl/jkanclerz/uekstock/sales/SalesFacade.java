@@ -24,4 +24,8 @@ public class SalesFacade {
         return basketStorage.getForCustomer(customerId)
                 .orElse(Basket.empty());
     }
+
+    public Offer getCurrentOffer(String customerId) {
+        return new Offer();
+    }
 }
