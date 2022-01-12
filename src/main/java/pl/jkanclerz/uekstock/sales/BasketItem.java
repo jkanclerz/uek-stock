@@ -14,4 +14,12 @@ public class BasketItem {
     static BasketItem of(String productId, BigDecimal price) {
         return new BasketItem(productId, price);
     }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public int getQuantity() {
+        return 1;
+    }
 }

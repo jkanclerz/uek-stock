@@ -32,7 +32,7 @@ public class MakingAnOfferTest {
 
         //Assert
         assertEquals(BigDecimal.valueOf(20.20), currentOffer.getTotal());
-        assertEquals(2, currentOffer.getItemsCount());
+        assertEquals(2, currentOffer.getLinesCount());
     }
 
     private String thereIsProduct(String productId, BigDecimal price) {

@@ -21,4 +21,8 @@ public class Basket {
     public void add(BasketItem basketItem) {
         items.add(basketItem);
     }
+
+    public List<BasketItem> getBasketItems() {
+        return items;
+    }
 }
