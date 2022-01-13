@@ -1,4 +1,4 @@
-package pl.jkanclerz.uekstock.sales;
+package pl.jkanclerz.uekstock.sales.offerting;
 
 import java.math.BigDecimal;
 import java.util.List;

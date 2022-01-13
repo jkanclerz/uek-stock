@@ -4,6 +4,23 @@ const getProducts = () => {
         .catch(error => console.log(error));
 }
 
+const handleAddToBasket = (productId) => {
+    const url = `/api/add-product/${productId}`;
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+    });
+}
+
+const refreshCurrentOffer = () => {
+    return fetch('/api/current-offer')
+        .then(r => r.json())
+        .then(offer => updateBasketComponent(offer))
+}
+
+
 const createHtmlElementFromString = (htmlAsString) => {
     let myElement = document.createElement('div');
     myElement.innerHTML = htmlAsString.trim();
@@ -35,27 +52,15 @@ const appendToProductList = (htmlList, htmlElements) => {
     return htmlElements;
 }
 
-const handleAddToBasket = (productId) => {
-    const url = `/api/add-product/${productId}`;
-    return fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-    });
-}
 
+
+/*@TODO i don't like it */
 const updateBasketComponent = (offer) => {
     const basketEl = document.querySelector('.basket');
     basketEl.querySelector('.basket__items-count').innerText = `${offer.linesCount} Items`;
     basketEl.querySelector('.basket__total').innerText = `${offer.total} PLN`;
 }
 
-const refreshCurrentOffer = () => {
-    return fetch('/api/current-offer')
-        .then(r => r.json())
-        .then(offer => updateBasketComponent(offer))
-}
 
 const initializeAddToBasketHandler = (htmlElements) => {
     htmlElements.forEach(element => {
