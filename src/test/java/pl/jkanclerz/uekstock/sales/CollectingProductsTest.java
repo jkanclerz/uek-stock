@@ -2,11 +2,9 @@ package pl.jkanclerz.uekstock.sales;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import pl.jkanclerz.uekstock.productcatalog.ProductCatalog;
+import pl.jkanclerz.uekstock.sales.offerting.OfferMaker;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -93,7 +91,8 @@ public class CollectingProductsTest {
     private SalesFacade thereIsSalesModule() {
         return new SalesFacade(
                 basketStorage,
-                productDetailsProvider
+                productDetailsProvider,
+                new OfferMaker(productDetailsProvider)
         );
     }
 

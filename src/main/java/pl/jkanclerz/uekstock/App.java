@@ -6,11 +6,8 @@ import org.springframework.context.annotation.Bean;
 import pl.jkanclerz.uekstock.productcatalog.Product;
 import pl.jkanclerz.uekstock.productcatalog.ProductCatalog;
 import pl.jkanclerz.uekstock.productcatalog.ProductRepository;
-import pl.jkanclerz.uekstock.productcatalog.ProductStorage;
-import pl.jkanclerz.uekstock.sales.BasketStorage;
-import pl.jkanclerz.uekstock.sales.ProductDetails;
-import pl.jkanclerz.uekstock.sales.ProductDetailsProvider;
-import pl.jkanclerz.uekstock.sales.SalesFacade;
+import pl.jkanclerz.uekstock.sales.*;
+import pl.jkanclerz.uekstock.sales.offerting.OfferMaker;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -56,7 +53,8 @@ public class App {
     public SalesFacade createSalesFacade(ProductDetailsProvider productDetailsProvider) {
         return new SalesFacade(
                 new BasketStorage(),
-                productDetailsProvider
+                productDetailsProvider,
+                new OfferMaker(productDetailsProvider)
         );
     }
 
