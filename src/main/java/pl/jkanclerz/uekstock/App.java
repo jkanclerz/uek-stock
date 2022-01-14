@@ -3,9 +3,11 @@ package pl.jkanclerz.uekstock;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import pl.jkanclerz.uekstock.productcatalog.Product;
 import pl.jkanclerz.uekstock.productcatalog.ProductCatalog;
 import pl.jkanclerz.uekstock.productcatalog.ProductRepository;
-import pl.jkanclerz.uekstock.productcatalog.ProductStorage;
+import pl.jkanclerz.uekstock.sales.*;
+import pl.jkanclerz.uekstock.sales.offerting.OfferMaker;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -36,6 +38,34 @@ public class App {
         );
         productCatalog.publish(productId2);
 
+        String productId3 = productCatalog.addProduct(
+                "Example product 3",
+                BigDecimal.valueOf(30.10),
+                Arrays.asList("tag2"),
+                "https://picsum.photos/301/201"
+        );
+        productCatalog.publish(productId3);
+
         return productCatalog;
+    }
+
+    @Bean
+    public SalesFacade createSalesFacade(ProductDetailsProvider productDetailsProvider) {
+        return new SalesFacade(
+                new BasketStorage(),
+                productDetailsProvider,
+                new OfferMaker(productDetailsProvider)
+        );
+    }
+
+    @Bean
+    public ProductDetailsProvider productDetailsProvider(ProductCatalog productCatalog ) {
+        return (id) -> {
+            Product product = productCatalog.getById(id);
+            return new ProductDetails(
+                    product.getId(),
+                    product.getPrice()
+            );
+        };
     }
 }
