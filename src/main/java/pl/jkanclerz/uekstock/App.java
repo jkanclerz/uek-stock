@@ -23,7 +23,7 @@ public class App {
             ProductRepository productRepository) {
         ProductCatalog productCatalog = new ProductCatalog(productRepository);
         String productId1 = productCatalog.addProduct(
-                "Example product 1",
+                "MY Example product 1",
                 BigDecimal.valueOf(10.10),
                 Arrays.asList("tag1", "tag2"),
                 "https://picsum.photos/200/300"
