@@ -54,8 +54,8 @@ public class App {
         return new SalesFacade(
                 new BasketStorage(),
                 productDetailsProvider,
-                new OfferMaker(productDetailsProvider)
-        );
+                new OfferMaker(productDetailsProvider),
+                new InMemoryReservationStorage(), new PaymentGateway());
     }
 
     @Bean

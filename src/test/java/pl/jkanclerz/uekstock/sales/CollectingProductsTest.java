@@ -92,8 +92,8 @@ public class CollectingProductsTest {
         return new SalesFacade(
                 basketStorage,
                 productDetailsProvider,
-                new OfferMaker(productDetailsProvider)
-        );
+                new OfferMaker(productDetailsProvider),
+                new InMemoryReservationStorage(), new PaymentGateway());
     }
 
     private String thereIsCustomer(String customerName) {
