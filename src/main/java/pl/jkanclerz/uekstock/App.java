@@ -55,7 +55,7 @@ public class App {
                 new BasketStorage(),
                 productDetailsProvider,
                 new OfferMaker(productDetailsProvider),
-                new InMemoryReservationStorage(), new PaymentGateway());
+                new InMemoryReservationStorage(), new DummyPaymentGateway());
     }
 
     @Bean

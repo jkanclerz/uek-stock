@@ -93,7 +93,7 @@ public class CollectingProductsTest {
                 basketStorage,
                 productDetailsProvider,
                 new OfferMaker(productDetailsProvider),
-                new InMemoryReservationStorage(), new PaymentGateway());
+                new InMemoryReservationStorage(), new DummyPaymentGateway());
     }
 
     private String thereIsCustomer(String customerName) {

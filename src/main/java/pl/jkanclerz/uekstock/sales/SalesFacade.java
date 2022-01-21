@@ -9,10 +9,10 @@ public class SalesFacade {
     private ProductDetailsProvider productDetailsProvider;
     private OfferMaker offerMaker;
     private InMemoryReservationStorage reservationStorage;
-    private PaymentGateway paymentGateway;
+    private DummyPaymentGateway paymentGateway;
 
 
-    public SalesFacade(BasketStorage basketStorage, ProductDetailsProvider productDetailsProvider, OfferMaker offerMaker, InMemoryReservationStorage reservationStorage, PaymentGateway paymentGateway) {
+    public SalesFacade(BasketStorage basketStorage, ProductDetailsProvider productDetailsProvider, OfferMaker offerMaker, InMemoryReservationStorage reservationStorage, DummyPaymentGateway paymentGateway) {
         this.basketStorage = basketStorage;
         this.productDetailsProvider = productDetailsProvider;
         this.offerMaker = offerMaker;

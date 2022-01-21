@@ -63,7 +63,7 @@ public class OrderingTest {
 
     private void itContainsPaymentUrl(ReservationDetails reservationDetails) {
         assertNotNull(reservationDetails.getPaymentUrl());
-        assertTrue(reservationDetails.getPaymentUrl().contains("payu.pl"));
+        assertTrue(reservationDetails.getPaymentUrl().contains(DummyPaymentGateway.DUMMY_PAYMENT_URL), "invalid payment url");
     }
 
     private CustomerData clientProvidedCustomerDetails() {
@@ -85,6 +85,6 @@ public class OrderingTest {
                 basketStorage,
                 productDetailsProvider,
                 new OfferMaker(productDetailsProvider),
-                reservationStorage, new PaymentGateway());
+                reservationStorage, new DummyPaymentGateway());
     }
 }
