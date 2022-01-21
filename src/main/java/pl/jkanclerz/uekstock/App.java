@@ -8,6 +8,8 @@ import pl.jkanclerz.uekstock.productcatalog.ProductCatalog;
 import pl.jkanclerz.uekstock.productcatalog.ProductRepository;
 import pl.jkanclerz.uekstock.sales.*;
 import pl.jkanclerz.uekstock.sales.offerting.OfferMaker;
+import pl.jkanclerz.uekstock.sales.ordering.InMemoryReservationStorage;
+import pl.jkanclerz.uekstock.sales.ordering.ReservationRepository;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -67,5 +69,10 @@ public class App {
                     product.getPrice()
             );
         };
+    }
+
+    @Bean
+    public JpaReservationStorage createJpaReervationStorage(ReservationRepository reservationRepository) {
+        return new JpaReservationStorage(reservationRepository);
     }
 }

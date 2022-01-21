@@ -3,6 +3,7 @@ package pl.jkanclerz.uekstock.sales;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.jkanclerz.uekstock.sales.offerting.OfferMaker;
+import pl.jkanclerz.uekstock.sales.ordering.InMemoryReservationStorage;
 
 import java.math.BigDecimal;
 

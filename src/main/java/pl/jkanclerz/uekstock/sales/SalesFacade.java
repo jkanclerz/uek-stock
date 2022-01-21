@@ -3,6 +3,9 @@ package pl.jkanclerz.uekstock.sales;
 
 import pl.jkanclerz.uekstock.sales.offerting.Offer;
 import pl.jkanclerz.uekstock.sales.offerting.OfferMaker;
+import pl.jkanclerz.uekstock.sales.ordering.InMemoryReservationStorage;
+import pl.jkanclerz.uekstock.sales.ordering.Reservation;
+import pl.jkanclerz.uekstock.sales.ordering.ReservationDetails;
 
 public class SalesFacade {
     private BasketStorage basketStorage;

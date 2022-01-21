@@ -1,26 +1,40 @@
-package pl.jkanclerz.uekstock.sales;
+package pl.jkanclerz.uekstock.sales.ordering;
 
+import pl.jkanclerz.uekstock.sales.BasketItem;
+import pl.jkanclerz.uekstock.sales.CustomerData;
+import pl.jkanclerz.uekstock.sales.DummyPaymentGateway;
 import pl.jkanclerz.uekstock.sales.offerting.Offer;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+@Entity
 public class Reservation {
-    private final String id;
-    private final BigDecimal total;
-    private final CustomerDetails customerDetails;
-    private final List<ReservationLine> lines;
+    @Id
+    private String id;
+    private BigDecimal total;
+    @Embedded
+    private CustomerDetails customerDetails;
+
+    @OneToMany(mappedBy = "reservation", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private List<ReservationLine> lines;
+
+    @Embedded
     private PaymentDetails paymentDetails;
     private Instant paidAt;
+
+    Reservation() {}
 
     public Reservation(String id, BigDecimal total, CustomerDetails customerDetails, List<ReservationLine> lines) {
         this.id = id;
         this.total = total;
         this.customerDetails = customerDetails;
         this.lines = lines;
+        lines.forEach(line -> line.reservation = this);
     }
 
     public static Reservation of(Offer currentOffer, List<BasketItem> basketItems, CustomerData customerData) {
@@ -60,5 +74,9 @@ public class Reservation {
 
     public PaymentDetails paymentDetails() {
         return paymentDetails;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
     }
 }

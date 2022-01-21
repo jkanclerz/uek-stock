@@ -1,9 +1,15 @@
-package pl.jkanclerz.uekstock.sales;
+package pl.jkanclerz.uekstock.sales.ordering;
 
+
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class CustomerDetails {
     String firstname;
     String lastname;
     String email;
+
+    CustomerDetails() {}
 
     public CustomerDetails(String firstname, String lastname, String email) {
         this.firstname = firstname;

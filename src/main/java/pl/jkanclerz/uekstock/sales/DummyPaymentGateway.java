@@ -1,5 +1,8 @@
 package pl.jkanclerz.uekstock.sales;
 
+import pl.jkanclerz.uekstock.sales.ordering.CustomerDetails;
+import pl.jkanclerz.uekstock.sales.ordering.PaymentDetails;
+
 import java.math.BigDecimal;
 import java.util.UUID;
 
