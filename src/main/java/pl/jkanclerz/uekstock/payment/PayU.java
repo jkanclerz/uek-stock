@@ -17,6 +17,7 @@ public class PayU {
 
     public RegisterPaymentResponse handle(RegisterPaymentRequest request) {
         request.setMerchantPosId(payUApiConfiguration.getMerchantPosId());
+        request.setNotifyUrl("https://your.eshop.com/notify");
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);

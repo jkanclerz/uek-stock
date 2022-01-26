@@ -3,6 +3,7 @@ package pl.jkanclerz.uekstock;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import pl.jkanclerz.uekstock.payment.PayU;
 import pl.jkanclerz.uekstock.productcatalog.Product;
 import pl.jkanclerz.uekstock.productcatalog.ProductCatalog;
 import pl.jkanclerz.uekstock.productcatalog.ProductRepository;
@@ -10,6 +11,8 @@ import pl.jkanclerz.uekstock.sales.*;
 import pl.jkanclerz.uekstock.sales.offerting.OfferMaker;
 import pl.jkanclerz.uekstock.sales.ordering.InMemoryReservationStorage;
 import pl.jkanclerz.uekstock.sales.ordering.ReservationRepository;
+import pl.jkanclerz.uekstock.sales.payment.DummyPaymentGateway;
+import pl.jkanclerz.uekstock.sales.payment.PayUPaymentGateway;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -52,12 +55,13 @@ public class App {
     }
 
     @Bean
-    public SalesFacade createSalesFacade(ProductDetailsProvider productDetailsProvider) {
+    public SalesFacade createSalesFacade(ProductDetailsProvider productDetailsProvider, PayU payU) {
         return new SalesFacade(
                 new BasketStorage(),
                 productDetailsProvider,
                 new OfferMaker(productDetailsProvider),
-                new InMemoryReservationStorage(), new DummyPaymentGateway());
+                new InMemoryReservationStorage(),
+                new PayUPaymentGateway(payU));
     }
 
     @Bean

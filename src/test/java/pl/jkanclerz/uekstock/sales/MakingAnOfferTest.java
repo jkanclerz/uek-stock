@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import pl.jkanclerz.uekstock.sales.offerting.Offer;
 import pl.jkanclerz.uekstock.sales.offerting.OfferMaker;
 import pl.jkanclerz.uekstock.sales.ordering.InMemoryReservationStorage;
+import pl.jkanclerz.uekstock.sales.payment.DummyPaymentGateway;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -6,16 +6,18 @@ import pl.jkanclerz.uekstock.sales.offerting.OfferMaker;
 import pl.jkanclerz.uekstock.sales.ordering.InMemoryReservationStorage;
 import pl.jkanclerz.uekstock.sales.ordering.Reservation;
 import pl.jkanclerz.uekstock.sales.ordering.ReservationDetails;
+import pl.jkanclerz.uekstock.sales.payment.DummyPaymentGateway;
+import pl.jkanclerz.uekstock.sales.payment.PaymentGateway;
 
 public class SalesFacade {
     private BasketStorage basketStorage;
     private ProductDetailsProvider productDetailsProvider;
     private OfferMaker offerMaker;
     private InMemoryReservationStorage reservationStorage;
-    private DummyPaymentGateway paymentGateway;
+    private PaymentGateway paymentGateway;
 
 
-    public SalesFacade(BasketStorage basketStorage, ProductDetailsProvider productDetailsProvider, OfferMaker offerMaker, InMemoryReservationStorage reservationStorage, DummyPaymentGateway paymentGateway) {
+    public SalesFacade(BasketStorage basketStorage, ProductDetailsProvider productDetailsProvider, OfferMaker offerMaker, InMemoryReservationStorage reservationStorage, PaymentGateway paymentGateway) {
         this.basketStorage = basketStorage;
         this.productDetailsProvider = productDetailsProvider;
         this.offerMaker = offerMaker;

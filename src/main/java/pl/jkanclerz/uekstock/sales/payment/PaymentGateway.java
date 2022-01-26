@@ -1,4 +1,4 @@
-package pl.jkanclerz.uekstock.sales;
+package pl.jkanclerz.uekstock.sales.payment;
 
 import pl.jkanclerz.uekstock.sales.ordering.CustomerDetails;
 import pl.jkanclerz.uekstock.sales.ordering.PaymentDetails;
