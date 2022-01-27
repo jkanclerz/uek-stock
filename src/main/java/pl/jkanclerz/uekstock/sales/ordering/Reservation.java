@@ -1,8 +1,7 @@
 package pl.jkanclerz.uekstock.sales.ordering;
 
-import pl.jkanclerz.uekstock.sales.BasketItem;
-import pl.jkanclerz.uekstock.sales.CustomerData;
-import pl.jkanclerz.uekstock.sales.payment.DummyPaymentGateway;
+import pl.jkanclerz.uekstock.sales.basket.BasketItem;
+import pl.jkanclerz.uekstock.sales.dto.CustomerData;
 import pl.jkanclerz.uekstock.sales.offerting.Offer;
 import pl.jkanclerz.uekstock.sales.payment.PaymentGateway;
 

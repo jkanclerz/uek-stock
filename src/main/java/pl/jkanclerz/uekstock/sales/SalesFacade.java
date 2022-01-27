@@ -1,12 +1,17 @@
 package pl.jkanclerz.uekstock.sales;
 
 
+import pl.jkanclerz.uekstock.sales.basket.Basket;
+import pl.jkanclerz.uekstock.sales.basket.BasketItem;
+import pl.jkanclerz.uekstock.sales.basket.BasketStorage;
+import pl.jkanclerz.uekstock.sales.catalog.ProductDetails;
+import pl.jkanclerz.uekstock.sales.catalog.ProductDetailsProvider;
+import pl.jkanclerz.uekstock.sales.dto.CustomerData;
 import pl.jkanclerz.uekstock.sales.offerting.Offer;
 import pl.jkanclerz.uekstock.sales.offerting.OfferMaker;
 import pl.jkanclerz.uekstock.sales.ordering.InMemoryReservationStorage;
 import pl.jkanclerz.uekstock.sales.ordering.Reservation;
 import pl.jkanclerz.uekstock.sales.ordering.ReservationDetails;
-import pl.jkanclerz.uekstock.sales.payment.DummyPaymentGateway;
 import pl.jkanclerz.uekstock.sales.payment.PaymentGateway;
 
 public class SalesFacade {

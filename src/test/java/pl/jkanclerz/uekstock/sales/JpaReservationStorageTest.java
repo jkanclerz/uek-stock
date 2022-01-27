@@ -4,7 +4,10 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import pl.jkanclerz.uekstock.sales.basket.BasketItem;
+import pl.jkanclerz.uekstock.sales.dto.CustomerData;
 import pl.jkanclerz.uekstock.sales.offerting.Offer;
+import pl.jkanclerz.uekstock.sales.ordering.JpaReservationStorage;
 import pl.jkanclerz.uekstock.sales.ordering.Reservation;
 
 import java.math.BigDecimal;

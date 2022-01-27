@@ -1,4 +1,4 @@
-package pl.jkanclerz.uekstock.sales;
+package pl.jkanclerz.uekstock.sales.dto;
 
 
 import lombok.AllArgsConstructor;

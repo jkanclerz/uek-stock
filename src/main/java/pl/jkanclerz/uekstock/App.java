@@ -8,10 +8,13 @@ import pl.jkanclerz.uekstock.productcatalog.Product;
 import pl.jkanclerz.uekstock.productcatalog.ProductCatalog;
 import pl.jkanclerz.uekstock.productcatalog.ProductRepository;
 import pl.jkanclerz.uekstock.sales.*;
+import pl.jkanclerz.uekstock.sales.basket.BasketStorage;
+import pl.jkanclerz.uekstock.sales.catalog.ProductDetails;
+import pl.jkanclerz.uekstock.sales.catalog.ProductDetailsProvider;
 import pl.jkanclerz.uekstock.sales.offerting.OfferMaker;
 import pl.jkanclerz.uekstock.sales.ordering.InMemoryReservationStorage;
+import pl.jkanclerz.uekstock.sales.ordering.JpaReservationStorage;
 import pl.jkanclerz.uekstock.sales.ordering.ReservationRepository;
-import pl.jkanclerz.uekstock.sales.payment.DummyPaymentGateway;
 import pl.jkanclerz.uekstock.sales.payment.PayUPaymentGateway;
 
 import java.math.BigDecimal;

@@ -1,4 +1,4 @@
-package pl.jkanclerz.uekstock.sales;
+package pl.jkanclerz.uekstock.sales.catalog;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

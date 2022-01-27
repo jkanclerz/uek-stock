@@ -1,4 +1,4 @@
-package pl.jkanclerz.uekstock.sales;
+package pl.jkanclerz.uekstock.sales.basket;
 
 import java.util.ArrayList;
 import java.util.List;

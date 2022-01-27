@@ -1,6 +1,7 @@
 package pl.jkanclerz.uekstock.sales;
 
 import org.springframework.web.bind.annotation.*;
+import pl.jkanclerz.uekstock.sales.dto.CustomerData;
 import pl.jkanclerz.uekstock.sales.offerting.Offer;
 import pl.jkanclerz.uekstock.sales.ordering.ReservationDetails;
 

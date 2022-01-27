@@ -1,4 +1,4 @@
-package pl.jkanclerz.uekstock.sales;
+package pl.jkanclerz.uekstock.sales.ordering;
 
 import pl.jkanclerz.uekstock.sales.ordering.Reservation;
 import pl.jkanclerz.uekstock.sales.ordering.ReservationRepository;

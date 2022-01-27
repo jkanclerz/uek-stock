@@ -1,8 +1,8 @@
 package pl.jkanclerz.uekstock.sales.offerting;
 
-import pl.jkanclerz.uekstock.sales.Basket;
-import pl.jkanclerz.uekstock.sales.BasketItem;
-import pl.jkanclerz.uekstock.sales.ProductDetailsProvider;
+import pl.jkanclerz.uekstock.sales.basket.Basket;
+import pl.jkanclerz.uekstock.sales.basket.BasketItem;
+import pl.jkanclerz.uekstock.sales.catalog.ProductDetailsProvider;
 
 import java.math.BigDecimal;
 import java.util.List;

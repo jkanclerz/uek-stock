@@ -1,6 +1,4 @@
-package pl.jkanclerz.uekstock.sales;
-
-import pl.jkanclerz.uekstock.productcatalog.Product;
+package pl.jkanclerz.uekstock.sales.catalog;
 
 public interface ProductDetailsProvider {
     ProductDetails getProductDetails(String productId);
